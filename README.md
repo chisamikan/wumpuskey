@@ -52,7 +52,7 @@ https://misskey.io/channels/xxxxxxxxxx
 ### 3-1. Googleスプレッドシートを新規作成する
 
 1. Googleドライブ（drive.google.com）を開く
-2. 左上の「＋ 新規」→「Googleスプレッドシート」をクリックして新規作成する
+2. 左上の「＋ 新規」→「Googleスプレッドシート」をクリックして新規作成する  
 ※ファイル名は公開されないため、ご自身で覚えやすい適当な名前を付けてください
 
 ### 3-2. Google Apps Scriptを追加する

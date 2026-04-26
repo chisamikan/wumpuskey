@@ -78,18 +78,18 @@ https://misskey.io/channels/xxxxxxxxxx
 2. ページ下部の「スクリプト プロパティ」セクションまでスクロールする
 3. 「スクリプト プロパティを追加」をクリックする
 
-### 4-2. プロパティを2つ登録する
+### 4-2. プロパティの登録
 
-以下の2つを1つずつ登録します。「プロパティ」列に左の値を、「値」列に右の値を入力してください。
+以下の3つのプロパティを1つずつ登録します。「プロパティ」列に左の値を、「値」列に右の値を入力してください。
+「スクリプト プロパティを追加」をクリックすると、入力行が追加できます。
 
 | プロパティ | 設定する値 |
 |---|---|
 | `DISCORD_WEBHOOK_URL` | STEP 1 でコピーしたDiscordのWebhook URL |
-| `MISSKEY_API_BASE` | MisskeyのAPI URL。Misskey.ioの場合は https://misskey.io/api |
+| `MISSKEY_API_BASE` | MisskeyのAPI URL。Misskey.ioの場合は `https://misskey.io/api` |
 | `MISSKEY_CHANNEL_ID` | STEP 2 で確認したMisskeyのチャンネルID |
 
-4. 1つ目を入力したら「行を追加」をクリックし、2つ目を入力する
-5. すべて入力したら「スクリプト プロパティを保存」をクリックする
+4. すべて入力したら「スクリプト プロパティを保存」をクリックする
 
 ---
 

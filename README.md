@@ -2,7 +2,7 @@
 
 ## これは何？
 
-Misskeyのチャンネルに投稿された画像付きノートを直近100件の中からランダムに選出し、ノートのURLを任意のDiscordチャンネルへ投稿するBotです。
+Misskeyのチャンネルに投稿された画像付きノートを直近100件の中からランダムに選出し、ノートのURLを任意のDiscordチャンネルへ投稿するBotです。  
 Google Apps Script（GAS）とGoogleスプレッドシートを使って動作するため、サーバーの用意は不要です。
 
 ## 事前に用意するもの
@@ -85,7 +85,7 @@ https://misskey.io/channels/xxxxxxxxxx
 | プロパティ | 設定する値 |
 |---|---|
 | `DISCORD_WEBHOOK_URL` | STEP 1 でコピーしたDiscordのWebhook URL |
-| `MISSKEY_SERVER_URL` | MisskeyサーバーのURL。Misskey.ioの場合は `https://misskey.io/api`です。**末尾の/は付けないでください。** |
+| `MISSKEY_SERVER_URL` | MisskeyサーバーのURL。Misskey.ioの場合は `https://misskey.io`です。**URL末尾の/は付けないでください。** |
 | `MISSKEY_CHANNEL_ID` | STEP 2 で確認したMisskeyのチャンネルID |
 
 4. すべて入力したら「スクリプト プロパティを保存」をクリックする

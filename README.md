@@ -63,7 +63,7 @@ https://misskey.io/channels/xxxxxxxxxx
 ### 3-3. コードを入力する
 
 1. GASエディタが開いたら、最初から書かれているコード（`function myFunction...`）をすべて削除する
-2. 配布しているソースコードの内容をすべてコピーして貼り付ける
+2. ![code.gs](https://github.com/chisamikan/wumpuskey/blob/main/code.gs)の内容をすべてコピーして貼り付ける
 3. 左上のフロッピーディスクアイコン（または `Ctrl+S` / `Cmd+S`）で保存する
 
 ---
@@ -81,7 +81,6 @@ https://misskey.io/channels/xxxxxxxxxx
 ### 4-2. プロパティの登録
 
 以下の3つのプロパティを1つずつ登録します。「プロパティ」列に左の値を、「値」列に右の値を入力してください。
-「スクリプト プロパティを追加」をクリックすると、入力行が追加できます。
 
 | プロパティ | 設定する値 |
 |---|---|

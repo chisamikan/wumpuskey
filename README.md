@@ -1,0 +1,2 @@
+# wumpuskey
+Misskeyのチャンネルに投稿された画像付きノートをランダムに選出し、ノートのURLを任意のDiscordチャンネルへ投稿するBot

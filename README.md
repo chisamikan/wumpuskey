@@ -86,7 +86,7 @@ https://misskey.io/channels/xxxxxxxxxx
 | プロパティ | 設定する値 |
 |---|---|
 | `DISCORD_WEBHOOK_URL` | STEP 1 でコピーしたDiscordのWebhook URL |
-| `MISSKEY_API_BASE` | MisskeyのAPI URL。Misskey.ioの場合は `https://misskey.io/api` |
+| `MISSKEY_SERVER_URL` | MisskeyサーバーのURL。Misskey.ioの場合は `https://misskey.io/api`です。**末尾の/は付けないでください。** |
 | `MISSKEY_CHANNEL_ID` | STEP 2 で確認したMisskeyのチャンネルID |
 
 4. すべて入力したら「スクリプト プロパティを保存」をクリックする
@@ -192,7 +192,7 @@ const EXCLUDE_KEYWORDS = ['ゆるぼ', '募集', '宣伝', 'PR', '配布'];
 
 ### Discordに投稿されない
 
-- スクリプトプロパティの `DISCORD_WEBHOOK_URL`や`MISSKEY_API_BASE`が正しく設定されているか確認する
+- スクリプトプロパティの `DISCORD_WEBHOOK_URL`や`MISSKEY_SERVER_URL`が正しく設定されているか確認する
 - GASの実行ログにエラーが出ていないか確認する
 - Discordのチャンネルで外部からのWebhookが有効になっているか確認する
 

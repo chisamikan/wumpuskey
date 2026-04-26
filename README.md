@@ -63,7 +63,7 @@ https://misskey.io/channels/xxxxxxxxxx
 ### 3-3. コードを入力する
 
 1. GASエディタが開いたら、最初から書かれているコード（`function myFunction...`）をすべて削除する
-2. ![code.gs](https://github.com/chisamikan/wumpuskey/blob/main/code.gs)の内容をすべてコピーして貼り付ける
+2. [code.gs](https://github.com/chisamikan/wumpuskey/blob/main/code.gs)の内容をすべてコピーして貼り付ける
 3. 左上のフロッピーディスクアイコン（または `Ctrl+S` / `Cmd+S`）で保存する
 
 ---
@@ -209,4 +209,4 @@ const EXCLUDE_KEYWORDS = ['ゆるぼ', '募集', '宣伝', 'PR', '配布'];
 - スプレッドシートの「拡張機能」メニューからGASプロジェクトを開いているか確認する（スプレッドシートと紐付いている必要がある）
 
 ## ライセンス
-![MIT](https://github.com/chisamikan/wumpuskey/blob/main/LICENSE) © 千紗みかん
+[MIT](https://github.com/chisamikan/wumpuskey/blob/main/LICENSE) © 千紗みかん

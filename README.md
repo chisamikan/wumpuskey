@@ -207,3 +207,6 @@ const EXCLUDE_KEYWORDS = ['ゆるぼ', '募集', '宣伝', 'PR', '配布'];
 ### スプレッドシートにデータが記録されない
 
 - スプレッドシートの「拡張機能」メニューからGASプロジェクトを開いているか確認する（スプレッドシートと紐付いている必要がある）
+
+## ライセンス
+![MIT](https://github.com/chisamikan/wumpuskey/blob/main/LICENSE) © 千紗みかん

@@ -138,6 +138,7 @@ function filterNotes(notes, postedUrls, lastUserId) {
 // ============================================================
 
 // Webhook経由でノートのURLをDiscordに投稿する
+// Webhook経由でノートのURLをDiscordに投稿する（429時は自動リトライ）
 function postToDiscord(noteUrl) {
   const payload = { content: noteUrl };
 
@@ -148,8 +149,33 @@ function postToDiscord(noteUrl) {
     muteHttpExceptions: true,
   };
 
-  const response = UrlFetchApp.fetch(DISCORD_WEBHOOK_URL, options);
-  console.log(`Discord投稿レスポンス: ${response.getResponseCode()}`);
+  const MAX_RETRIES = 3;   // 最大リトライ回数
+  const RETRY_WAIT = 5000; // リトライ前の待機時間（ミリ秒）
+
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    const response = UrlFetchApp.fetch(DISCORD_WEBHOOK_URL, options);
+    const statusCode = response.getResponseCode();
+
+    console.log(`Discord投稿レスポンス: ${statusCode}（試行 ${attempt}/${MAX_RETRIES}）`);
+
+    // 成功
+    if (statusCode === 204) return;
+
+    // レート制限（429）：待機してリトライ
+    if (statusCode === 429) {
+      if (attempt < MAX_RETRIES) {
+        console.log(`レート制限のため ${RETRY_WAIT / 1000} 秒待機してリトライします`);
+        Utilities.sleep(RETRY_WAIT);
+        continue;
+      }
+      console.error('リトライ上限に達しました。今回の投稿はスキップします');
+      return;
+    }
+
+    // その他のエラー
+    console.error(`予期しないエラーが発生しました（ステータスコード: ${statusCode}）`);
+    return;
+  }
 }
 
 

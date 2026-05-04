@@ -45,13 +45,15 @@ function postRandomNote() {
     return;
   }
 
-  // フィルタリング済みのノートからランダムに1件選択
   const note = filtered[Math.floor(Math.random() * filtered.length)];
   const noteUrl = `${MISSKEY_SERVER_URL}/notes/${note.id}`;
 
-  postToDiscord(noteUrl);
-  savePostedUrl(noteUrl, note.userId);
-  console.log(`投稿完了: ${noteUrl}`);
+  // 投稿成功時のみスプレッドシートに記録する
+  const success = postToDiscord(noteUrl);
+  if (success) {
+    savePostedUrl(noteUrl, note.userId);
+    console.log(`投稿完了: ${noteUrl}`);
+  }
 }
 
 
@@ -137,8 +139,8 @@ function filterNotes(notes, postedUrls, lastUserId) {
 // Discord投稿
 // ============================================================
 
-// Webhook経由でノートのURLをDiscordに投稿する
 // Webhook経由でノートのURLをDiscordに投稿する（429時は自動リトライ）
+// 投稿成功時はtrue、失敗時はfalseを返す
 function postToDiscord(noteUrl) {
   const payload = { content: noteUrl };
 
@@ -149,8 +151,8 @@ function postToDiscord(noteUrl) {
     muteHttpExceptions: true,
   };
 
-  const MAX_RETRIES = 3;   // 最大リトライ回数
-  const RETRY_WAIT = 5000; // リトライ前の待機時間（ミリ秒）
+  const MAX_RETRIES = 3;
+  const RETRY_WAIT = 5000;
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     const response = UrlFetchApp.fetch(DISCORD_WEBHOOK_URL, options);
@@ -159,7 +161,7 @@ function postToDiscord(noteUrl) {
     console.log(`Discord投稿レスポンス: ${statusCode}（試行 ${attempt}/${MAX_RETRIES}）`);
 
     // 成功
-    if (statusCode === 204) return;
+    if (statusCode === 204) return true;
 
     // レート制限（429）：待機してリトライ
     if (statusCode === 429) {
@@ -169,12 +171,12 @@ function postToDiscord(noteUrl) {
         continue;
       }
       console.error('リトライ上限に達しました。今回の投稿はスキップします');
-      return;
+      return false;
     }
 
     // その他のエラー
     console.error(`予期しないエラーが発生しました（ステータスコード: ${statusCode}）`);
-    return;
+    return false;
   }
 }
 
